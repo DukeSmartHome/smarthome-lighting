@@ -1,0 +1,225 @@
+ html {
+     min-height: 100%;
+     background-size: cover;
+     width: 100%;
+     margin: 0;
+ }
+ 
+ body {
+     width: 100%;
+     margin: 0;
+     background: url(bg.jpg) no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     font-family: 'Roboto Slab', serif;
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+ }
+ 
+ #header {
+     width: 100%;
+     text-align: center;
+     font-size: 2.4em;
+     color: rgba(255, 255, 255, 0.9);
+     background: #235F9C;
+     padding: 20px 0;
+     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+ }
+ 
+ #groupContainer {
+     margin-top: 30px;
+ }
+ 
+ .lightGroup {
+     width: 700px;
+     height: 80px;
+     margin: auto;
+     margin-bottom: 10px;
+     text-align: center;
+     background: rgba(100, 100, 100, 0.4);
+     border-radius: 6px;
+     color: rgba(255, 255, 255, 0.8);
+     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+     transition: .6s;
+     cursor: pointer;
+ }
+ 
+ .lightGroup.on {
+     color: black;
+     background: rgba(255, 255, 255, 0.8);
+ }
+ 
+ .name {
+     font-size: 2em;
+     float: left;
+     line-height: 80px;
+     margin-left: 30px;
+ }
+ 
+ .name span {
+     color: #0680CD;
+ }
+ 
+ .on .name span {
+     color: #F09905;
+     text-shadow: 0 0 5px #F09905;
+ }
+ 
+ #attribution {
+     background-color: #ffffff;
+     width: 100%;
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     padding: 5px;
+ }
+ 
+ .onoff {
+     width: 100px;
+     height: 50px;
+     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+     border-radius: 25px;
+     float: right;
+     margin: 15px 15px;
+     position: relative;
+ }
+ 
+ .on .onoff {
+     background-color: #CBEA60;
+ }
+ 
+ .slider {
+     position: absolute;
+     left: 0;
+     width: 50px;
+     height: 50px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+     border-radius: 30px;
+     background-color: rgba(255, 255, 255, 0.5);
+     transition: .5s;
+ }
+ 
+ .on .onoff .slider {
+     left: 50px;
+     background-color: rgba(255, 255, 255, 1);
+ }
+ 
+ #vSpace {
+     height: 100px;
+     margin-top: 10px;
+     width: 100%;
+ }
+ 
+ #sortContainer {
+     width: 100%;
+     position: fixed;
+     bottom: 0;
+     left: 0px;
+     bottom: 0px;
+     height: 100px;
+     width: 100%;
+     background-color: rgba(255, 255, 255, 0.3);
+     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
+ }
+ 
+ #sortContainer>div {
+     width: 750px;
+     margin: 0 auto;
+     height: 100%;
+     background-color: rgba(255, 255, 255, 0.75);
+ }
+ 
+ .sortButton {
+     width: 16.66666%;
+     height: 100%;
+     float: left;
+     position: relative;
+     cursor: pointer;
+     transition: .3s;
+ }
+ 
+ .sortButton:hover {
+     background-color: #235F9C;
+     color: white;
+ }
+ 
+ .selected {
+     background-color: #235F9C;
+     color: white;
+     text-shadow: 0 0 5px white;
+ }
+ 
+ .title {
+     position: absolute;
+     bottom: 5px;
+     width: 100%;
+     text-align: center;
+ }
+ 
+ .logo {
+     position: absolute;
+     top: 5px;
+     width: 100%;
+     height: 80px;
+ }
+ 
+ @media (max-width: 750px) {
+     #header {
+         font-size: 25px;
+     }
+     #groupContainer {
+         margin-top: 5px;
+     }
+     .lightGroup {
+         width: 100%;
+         height: 60px;
+         margin-bottom: 5px;
+         border-radius: 0;
+     }
+     .name {
+         width: 100%;
+         margin: 0;
+         text-align: center;
+         font-size: 1.3em;
+         line-height: 60px;
+     }
+     .onoff {
+         display: none;
+         width: 80px;
+         height: 40px;
+         margin: 10px 10px;
+     }
+     .slider {
+         width: 40px;
+         height: 40px;
+     }
+     .on .onoff .slider {
+         left: 40px;
+     }
+     #vSpace {
+         height: 70px;
+     }
+     #sortContainer {
+         height: 70px;
+     }
+     #sortContainer>div {
+         width: 100%;
+     }
+     .title {
+         bottom: 3px;
+         font-size: .9em;
+         text-shadow: 0 0 3px white;
+     }
+     .logo {
+         position: absolute;
+         top: 5px;
+         width: 100%;
+         height: 40px;
+     }
+ }

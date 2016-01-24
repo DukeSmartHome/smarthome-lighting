@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <title>Lightboard Login</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='login.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div id="loginContainer">
+        Login to Lightboard
+        <form method="post" action="/login2">
+            <input type="text" id="user" name="username" />
+            <input type="password" id="pass" name="password" />
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script type='application/javascript' src='fastclick.js'></script>
+    <script type='application/javascript' src='hoverTouch.js'></script>
+    <script type='application/javascript' src='login.js'></script>
+    <script src="/socket.io/socket.io.js"></script>
+</body>
+
+</html>
