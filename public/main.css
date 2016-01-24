@@ -23,13 +23,33 @@
  }
  
  #header {
+     z-index: 999;
+     position: fixed;
+     top: 0;
      width: 100%;
      text-align: center;
      font-size: 2.4em;
      color: rgba(255, 255, 255, 0.9);
-     background: #235F9C;
-     padding: 20px 0;
+     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3498e5+13,235f9c+100,235f9c+100 */
+     background: #3498e5;
+     /* Old browsers */
+     background: -moz-linear-gradient(top, #3498e5 13%, #235f9c 100%, #235f9c 100%);
+     /* FF3.6-15 */
+     background: -webkit-linear-gradient(top, #3498e5 13%, #235f9c 100%, #235f9c 100%);
+     /* Chrome10-25,Safari5.1-6 */
+     background: linear-gradient(to bottom, #3498e5 13%, #235f9c 100%, #235f9c 100%);
+     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3498e5', endColorstr='#235f9c', GradientType=0);
+     /* IE6-9 */
+     line-height: 90px;
+     height: 90px;
      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+ }
+ 
+ #headerSpace {
+     height: 90px;
+     margin-bottom: 5px;
+     width: 100%;
  }
  
  #groupContainer {
@@ -112,7 +132,7 @@
  
  #vSpace {
      height: 100px;
-     margin-top: 10px;
+     margin-top: 20px;
      width: 100%;
  }
  
@@ -122,35 +142,37 @@
      bottom: 0;
      left: 0px;
      bottom: 0px;
-     height: 100px;
+     height: 105px;
      width: 100%;
-     background-color: rgba(255, 255, 255, 0.3);
-     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
  }
  
  #sortContainer>div {
-     width: 750px;
+     width: 850px;
      margin: 0 auto;
-     height: 100%;
-     background-color: rgba(255, 255, 255, 0.75);
+     height: 80px;
+     background-color: rgba(255, 255, 255, 0.9);
+     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
+     border-top-left-radius: 12px;
+     border-top-right-radius: 12px;
+     overflow: hidden;
  }
  
  .sortButton {
      width: 16.66666%;
-     height: 100%;
+     height: 80px;
      float: left;
      position: relative;
      cursor: pointer;
-     transition: .3s;
+     transition: .6s;
  }
  
  .sortButton:hover {
-     background-color: #235F9C;
+     background-color: #1982EA;
      color: white;
  }
  
  .selected {
-     background-color: #235F9C;
+     background-color: #4096ee;
      color: white;
      text-shadow: 0 0 5px white;
  }
@@ -164,14 +186,68 @@
  
  .logo {
      position: absolute;
-     top: 5px;
+     top: 0px;
      width: 100%;
-     height: 80px;
+     height: 55px;
+ }
+ 
+ .logow {
+     position: absolute;
+     opacity: 0;
+     top: 0px;
+     width: 100%;
+     height: 55px;
+ }
+ 
+ .sortButton:hover .logow {
+     opacity: 1;
+ }
+ 
+ .selected .logow {
+     opacity: 1;
+ }
+ 
+ #credits {
+     position: fixed;
+     bottom: 0;
+     z-index: 2;
+     width: 100%;
+     float: left;
+     line-height: 25px;
+     height: 25px;
+     font-size: 1em;
+     text-align: center;
+     background: #0680CD;
+     color: rgba(255, 255, 255, 0.8);
+     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3498e5+13,235f9c+100,235f9c+100 */
+     background: #3498e5;
+     /* Old browsers */
+     background: -moz-linear-gradient(top, #3498e5 13%, #235f9c 100%, #235f9c 100%);
+     /* FF3.6-15 */
+     background: -webkit-linear-gradient(top, #3498e5 13%, #235f9c 100%, #235f9c 100%);
+     /* Chrome10-25,Safari5.1-6 */
+     background: linear-gradient(to bottom, #3498e5 13%, #235f9c 100%, #235f9c 100%);
+     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3498e5', endColorstr='#235f9c', GradientType=0);
+     /* IE6-9 */
+     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
+ }
+ 
+ @media (max-width: 960px) {
+     #sortContainer>div {
+         width: 100%;
+         border-radius: 0;
+     }
  }
  
  @media (max-width: 750px) {
      #header {
          font-size: 25px;
+         height: 60px;
+         line-height: 60px;
+     }
+     #headerSpace {
+         height: 60px;
      }
      #groupContainer {
          margin-top: 5px;
@@ -206,13 +282,18 @@
          height: 70px;
      }
      #sortContainer {
+         height: 90px;
+     }
+     #credits {
+         line-height: 20px;
+         height: 20px;
+         font-size: .8em;
+     }
+     .sortButton {
          height: 70px;
      }
-     #sortContainer>div {
-         width: 100%;
-     }
      .title {
-         bottom: 3px;
+         bottom: 5px;
          font-size: .9em;
          text-shadow: 0 0 3px white;
      }
@@ -220,6 +301,12 @@
          position: absolute;
          top: 5px;
          width: 100%;
-         height: 40px;
+         height: 38px;
+     }
+     .logow {
+         position: absolute;
+         top: 5px;
+         width: 100%;
+         height: 38px;
      }
  }

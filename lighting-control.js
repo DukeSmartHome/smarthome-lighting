@@ -1,3 +1,17 @@
+// setup serialport library
+var SerialPort = require('serialport').SerialPort; // include serialport
+var serialPort = new SerialPort("COM3", {
+    baudRate: 9600
+}, false);
+
+// open serial port
+serialPort.open(function (error) {
+    if (error)
+        console.log('failed to open: ' + error);
+    else
+        console.log('connection opened');
+});
+
 module.exports = {
     changeStatus: function (status, whichLights) {
         if (status == 'ON') {
