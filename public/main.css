@@ -56,6 +56,93 @@
      margin-top: 30px;
  }
  
+ .ledGroup {
+     width: 700px;
+     height: 120px;
+     margin: auto;
+     margin-bottom: 10px;
+     text-align: left;
+     border-radius: 6px;
+     color: black;
+     background: rgba(255, 255, 255, 0.8);
+     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+     transition: .6s;
+     cursor: pointer;
+ }
+ 
+ .ledGroup .name {
+     font-size: 2em;
+     float: left;
+     height: 70px;
+     line-height: 70px;
+     margin-left: 30px;
+     width: 100%;
+ }
+ 
+ .ledFunc {
+     text-transform: capitalize;
+     background: rgba(255, 255, 255, 0.8);
+     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+     display: inline-block;
+     float: left;
+     padding: 6px 12px;
+     border-radius: 6px;
+     margin-left: 10px;
+     color: #fff;
+ }
+ 
+ .ledFunc.off {
+     margin-left: 30px;
+     background-color: #333;
+     border-color: #111;
+ }
+ 
+ .ledFunc.on {
+     background-color: #f0ad4e;
+     border-color: #eea236;
+ }
+ 
+ .ledFunc.warm {
+     color: #888;
+     background-color: #ecd863;
+     border-color: #f0ad4e;
+ }
+ 
+ .ledFunc.high {
+     color: #555;
+     background-color: #ebec63;
+     border-color: #bcbc4f;
+ }
+ 
+ .ledFunc.red {
+     background-color: #d9534f;
+     border-color: #d43f3a;
+ }
+ 
+ .ledFunc.green {
+     background-color: #5cb85c;
+     border-color: #4cae4c;
+ }
+ 
+ .ledFunc.blue {
+     background-color: #337ab7;
+     border-color: #2e6da4;
+ }
+ 
+ .ledFunc.party {
+     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f43030+0,34f731+49,1433ff+100 */
+     background: #f43030;
+     /* Old browsers */
+     background: -moz-linear-gradient(-45deg, #f43030 0%, #34f731 49%, #1433ff 100%);
+     /* FF3.6-15 */
+     background: -webkit-linear-gradient(-45deg, #f43030 0%, #34f731 49%, #1433ff 100%);
+     /* Chrome10-25,Safari5.1-6 */
+     background: linear-gradient(135deg, #f43030 0%, #34f731 49%, #1433ff 100%);
+     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f43030', endColorstr='#1433ff', GradientType=1);
+     /* IE6-9 fallback on horizontal gradient */
+ }
+ 
  .lightGroup {
      width: 700px;
      height: 80px;
@@ -83,12 +170,12 @@
  }
  
  .name span {
-     color: #0680CD;
+     color: #F09905;
  }
  
  .on .name span {
-     color: #F09905;
-     text-shadow: 0 0 5px #F09905;
+     color: #0680CD;
+     text-shadow: 0 0 5px #0680CD;
  }
  
  #attribution {
@@ -150,7 +237,7 @@
      width: 850px;
      margin: 0 auto;
      height: 80px;
-     background-color: rgba(255, 255, 255, 0.9);
+     background-color: rgba(255, 255, 255, 1);
      box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
      border-top-left-radius: 12px;
      border-top-right-radius: 12px;
@@ -251,6 +338,38 @@
      }
      #groupContainer {
          margin-top: 5px;
+     }
+     .ledGroup {
+         height: 135px;
+         width: 100%;
+         margin-bottom: 5px;
+         border-radius: 0;
+     }
+     .ledGroup .name {
+         width: 100%;
+         margin: 0;
+         text-align: center;
+         font-size: 1.3em;
+         line-height: 50px;
+         height: 45px;
+     }
+     .ledFunc {
+         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.23);
+         display: inline-block;
+         float: left;
+         text-align: center;
+         font-size: .9em;
+         border-radius: 0;
+         margin-left: 0;
+         color: #fff;
+         width: 23%;
+         margin: 5px 1%;
+         height: 32px;
+         box-sizing: border-box;
+         border-radius: 6px;
+     }
+     .ledFunc.off {
+         margin-left: 1%;
      }
      .lightGroup {
          width: 100%;

@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" href="apple-icon.png">
+
     <title>Lightboard</title>
+
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
     <link href='main.css' rel='stylesheet' type='text/css'>
 </head>
@@ -21,12 +26,13 @@
     <div id="sortContainer">
         <div></div>
     </div>
-    <div id="credits"> Harvey Shi | 2016 </div>
+    <div id="credits">A Duke Smart Home Project | 2016</div>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script type='application/javascript' src='fastclick.js'></script>
     <script type='application/javascript' src='hoverTouch.js'></script>
+    <script type='application/javascript' src="/socket.io/socket.io.js"></script>
     <script type='application/javascript' src='main.js'></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script type='application/javascript' src='leds.js'></script>
 </body>
 
 </html>
