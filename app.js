@@ -25,7 +25,7 @@ var lights = require('./lighting-control.js');
 
 
 // require the LED module for RGB light strips
-var leds = require('./led-control.js');
+var leds = require('./led-control.js'); 
 
 // socket.io module
 var socket = require('./socket-io.js')
