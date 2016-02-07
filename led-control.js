@@ -1,12 +1,11 @@
 //require spark
 var spark = require('spark');
-
-// require led-key: include your own particle api key
 var key = require('./led-key.js');
+var token = key.getKey();
 
 // login to spark/particle
 spark.login({
-    accessToken: key.getKey()
+    accessToken: token
 });
 
 module.exports = {
