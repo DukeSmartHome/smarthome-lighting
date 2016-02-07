@@ -10,7 +10,8 @@ spark.login({
 
 module.exports = {
     ledUpdate: function (type, rgbArray) {
-        switch (type) {
+        console.log('LED control: ' + type);
+	switch (type) {
         case 'off':
             spark.listDevices(function (err, devices) {
                 devices[0].callFunction('setRGB', 'off');
