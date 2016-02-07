@@ -1,6 +1,6 @@
 // setup serialport library
 var SerialPort = require('serialport').SerialPort; // include serialport
-var serialPort = new SerialPort("COM3", {
+var serialPort = new SerialPort("/dev/ttyUSB0", {
     baudRate: 9600
 }, false);
 
