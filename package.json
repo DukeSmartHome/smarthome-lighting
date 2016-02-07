@@ -1,0 +1,30 @@
+{
+  "name": "smarthome-lighting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+  		"body-parser" : "^1.14.1",
+		"express"     : "^4.13.3",
+		"mongoose"    : "^4.2.7",
+		"serve-favicon": "",
+		"serialport":"", 
+		"socket.io":"",
+		"spark":""
+		
+},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suyashkumar/smarthome-lighting.git"
+  },
+  "author": "Harvey Shi and Suyash Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suyashkumar/smarthome-lighting/issues"
+  },
+  "homepage": "https://github.com/suyashkumar/smarthome-lighting#readme"
+}

@@ -1,10 +1,9 @@
 // setup express
 var express = require('express');
 var app = express();
-app.get('/', function (req, res) {
-        res.sendFile(__dirname + '/index.html'); // load main page
-    })
-    .use(express.static(__dirname + '/public')); // setup static files
+
+// Set up static serving of front end:
+app.use(express.static(__dirname + '/public')); // HTML, CSS
 
 
 // setup favicon
@@ -26,8 +25,11 @@ var lights = require('./lighting-control.js');
 
 
 // require the LED module for RGB light strips
-var leds = require('./led-control.js');
+var leds = require('./led-control.js'); 
 
 // socket.io module
 var socket = require('./socket-io.js')
 socket.setupSocket(http_server, lights, leds);
+
+// Routes
+
