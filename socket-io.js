@@ -1,7 +1,7 @@
 module.exports = {
-    setupSocket: function (http_server, lights, leds) {
+    setupSocket: function (server, lights, leds) {
         // setup socket.io
-        var io = require('socket.io')(http_server);
+        var io = require('socket.io')(server);
 
         io.on('connection', function (socket) {
             console.log('a user has connected');
