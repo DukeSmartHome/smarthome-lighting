@@ -1,15 +1,7 @@
 // setup serialport library
-var SerialPort = require('serialport').SerialPort; // include serialport
+var SerialPort = require('serialport'); // include serialport
 var serialPort = new SerialPort("/dev/ttyUSB0", {
     baudRate: 9600
-}, false);
-
-// open serial port
-serialPort.open(function (error) {
-    if (error)
-        console.log('failed to open: ' + error);
-    else
-        console.log('connection opened');
 });
 
 module.exports = {
