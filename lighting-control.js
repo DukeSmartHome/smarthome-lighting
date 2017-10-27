@@ -7,8 +7,11 @@ var serialPort = new SerialPort("/dev/ttyUSB0", {
 module.exports = {
     changeStatus: function (status, whichLights) {
         if (status == 'ON') {
+	    
             for (var w = 0; w < whichLights.length; ++w) {
-                var whichLight = whichLights[w];
+		//console.log(whichLights[w]);
+		//console.log(status);            
+    var whichLight = whichLights[w];
                 var tempHex = whichLight.toString(16);
                 if (tempHex.length == 1)
                     tempHex = "0" + tempHex;
@@ -25,7 +28,8 @@ module.exports = {
                 for (var i = 0, len = fullStr.length; i < len; i++) {
                     finalStr += fullStr[i].charCodeAt(0).toString(16);
                 }
-                // write raw buffer input
+                 console.log(whichLights[w]+" "+status+" "+finalStr+"0D");
+		// write raw buffer input
                 var buffer = new Buffer(finalStr + "0D", "hex");
                 serialPort.write(buffer);
             }
@@ -49,6 +53,7 @@ module.exports = {
                 for (var i = 0, len = fullStr.length; i < len; i++) {
                     finalStr += fullStr[i].charCodeAt(0).toString(16);
                 }
+		console.log(whichLights[w]+" "+status+" "+finalStr+"0D");
                 var buffer = new Buffer(finalStr + "0D", "hex");
                 serialPort.write(buffer);
             }
