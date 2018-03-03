@@ -11,7 +11,7 @@ $(function () {
 
     function addLights(lightArray) {
         for (var i = 0; i < lights.length; ++i) {
-            var html = '<div class="lightGroup" data-light="' + lights[i][1] + '" data-type="' + lights[i][2] + '"><div class="name">' + lights[i][0] + ': <span>OFF</span></div><div class="onoff"><div class="slider"></div></div></div>'
+            var html = '<div class="lightGroup" data-light="' + lights[i][1] + '" data-type="' + lights[i][2] + '"><div class="name">' + lights[i][0] + ': <span>OFF</span></div><div class="slider"><div class="slider-handle"></div></div></div>'
             $('#groupContainer').prepend(html);
         }
     }
@@ -21,7 +21,7 @@ $(function () {
     var categories = [["All", "all"], ["Social", "community"], ["Rooms", "living"], ["Bath", "bathrooms"], ["Labs", "labs"], ["Outside", "outside"]];
 
     for (var i = 0; i < categories.length; ++i) {
-        var html = '<div class="sortButton" id="' + categories[i][1] + '"><div class="title">' + categories[i][0] + '</div><div class="logo" style="background: url(./img/' + categories[i][0].toLowerCase() + '.svg) no-repeat center center;background-size: 33px 33px;"></div><div class="logow" style="background: url(./img/' + categories[i][0].toLowerCase() + '_w.svg) no-repeat center center;background-size: 33px 33px;"></div></div>'
+        var html = '<div class="sortButton" id="' + categories[i][1] + '"><div class="title">' + categories[i][0] + '</div><div class="logow" style="background-image: url(./img/' + categories[i][0].toLowerCase() + '_w.svg)"></div></div>'
         $('#sortContainer>div').append(html);
     }
     // select all button
