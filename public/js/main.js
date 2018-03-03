@@ -21,7 +21,7 @@ $(function () {
     var categories = [["All", "all"], ["Social", "community"], ["Rooms", "living"], ["Bath", "bathrooms"], ["Labs", "labs"], ["Outside", "outside"]];
 
     for (var i = 0; i < categories.length; ++i) {
-        var html = '<div class="sortButton" id="' + categories[i][1] + '"><div class="title">' + categories[i][0] + '</div><div class="logo" style="background: url(' + categories[i][0].toLowerCase() + '.svg) no-repeat center center;background-size: 33px 33px;"></div><div class="logow" style="background: url(' + categories[i][0].toLowerCase() + '_w.svg) no-repeat center center;background-size: 33px 33px;"></div></div>'
+        var html = '<div class="sortButton" id="' + categories[i][1] + '"><div class="title">' + categories[i][0] + '</div><div class="logo" style="background: url(./img/' + categories[i][0].toLowerCase() + '.svg) no-repeat center center;background-size: 33px 33px;"></div><div class="logow" style="background: url(./img/' + categories[i][0].toLowerCase() + '_w.svg) no-repeat center center;background-size: 33px 33px;"></div></div>'
         $('#sortContainer>div').append(html);
     }
     // select all button

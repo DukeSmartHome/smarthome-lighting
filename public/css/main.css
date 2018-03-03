@@ -4,16 +4,16 @@
      width: 100%;
      margin: 0;
  }
- 
+
  body {
      width: 100%;
      margin: 0;
-     background: url(bg.jpg) no-repeat center center fixed;
+     background: url(../img/bg.jpg) no-repeat center center fixed;
      -webkit-background-size: cover;
      -moz-background-size: cover;
      -o-background-size: cover;
      background-size: cover;
-     font-family: 'Roboto Slab', serif;
+     font-family: 'Muli', sans-serif;
      -webkit-touch-callout: none;
      -webkit-user-select: none;
      -khtml-user-select: none;
@@ -21,14 +21,15 @@
      -ms-user-select: none;
      user-select: none;
  }
- 
+
  #header {
-     z-index: 999;
+     z-index: 9999;
      position: fixed;
      top: 0;
      width: 100%;
      text-align: center;
      font-size: 2.4em;
+     font-weight: 200;
      color: rgba(255, 255, 255, 0.9);
      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3498e5+13,235f9c+100,235f9c+100 */
      background: #3498e5;
@@ -43,19 +44,19 @@
      /* IE6-9 */
      line-height: 90px;
      height: 90px;
-     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
  }
- 
+
  #headerSpace {
      height: 90px;
      margin-bottom: 5px;
      width: 100%;
  }
- 
+
  #groupContainer {
      margin-top: 30px;
  }
- 
+
  .ledGroup {
      width: 700px;
      height: 120px;
@@ -69,7 +70,7 @@
      transition: .6s;
      cursor: pointer;
  }
- 
+
  .ledGroup .name {
      font-size: 2em;
      float: left;
@@ -78,7 +79,7 @@
      margin-left: 30px;
      width: 100%;
  }
- 
+
  .ledFunc {
      text-transform: capitalize;
      background: rgba(255, 255, 255, 0.8);
@@ -90,45 +91,45 @@
      margin-left: 10px;
      color: #fff;
  }
- 
+
  .ledFunc.off {
      margin-left: 30px;
      background-color: #333;
      border-color: #111;
  }
- 
+
  .ledFunc.on {
      background-color: #f0ad4e;
      border-color: #eea236;
  }
- 
+
  .ledFunc.warm {
      color: #888;
      background-color: #ecd863;
      border-color: #f0ad4e;
  }
- 
+
  .ledFunc.high {
      color: #555;
      background-color: #ebec63;
      border-color: #bcbc4f;
  }
- 
+
  .ledFunc.red {
      background-color: #d9534f;
      border-color: #d43f3a;
  }
- 
+
  .ledFunc.green {
      background-color: #5cb85c;
      border-color: #4cae4c;
  }
- 
+
  .ledFunc.blue {
      background-color: #337ab7;
      border-color: #2e6da4;
  }
- 
+
  .ledFunc.party {
      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f43030+0,34f731+49,1433ff+100 */
      background: #f43030;
@@ -142,7 +143,7 @@
      filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f43030', endColorstr='#1433ff', GradientType=1);
      /* IE6-9 fallback on horizontal gradient */
  }
- 
+
  .lightGroup {
      width: 700px;
      height: 80px;
@@ -156,28 +157,27 @@
      transition: .6s;
      cursor: pointer;
  }
- 
+
  .lightGroup.on {
      color: black;
      background: rgba(255, 255, 255, 0.8);
  }
- 
+
  .name {
      font-size: 2em;
      float: left;
      line-height: 80px;
      margin-left: 30px;
  }
- 
+
  .name span {
      color: #F09905;
  }
- 
+
  .on .name span {
      color: #0680CD;
-     text-shadow: 0 0 5px #0680CD;
  }
- 
+
  #attribution {
      background-color: #ffffff;
      width: 100%;
@@ -186,7 +186,7 @@
      left: 0;
      padding: 5px;
  }
- 
+
  .onoff {
      width: 100px;
      height: 50px;
@@ -196,11 +196,11 @@
      margin: 15px 15px;
      position: relative;
  }
- 
+
  .on .onoff {
      background-color: #CBEA60;
  }
- 
+
  .slider {
      position: absolute;
      left: 0;
@@ -211,18 +211,18 @@
      background-color: rgba(255, 255, 255, 0.5);
      transition: .5s;
  }
- 
+
  .on .onoff .slider {
      left: 50px;
      background-color: rgba(255, 255, 255, 1);
  }
- 
+
  #vSpace {
      height: 100px;
      margin-top: 20px;
      width: 100%;
  }
- 
+
  #sortContainer {
      width: 100%;
      position: fixed;
@@ -232,7 +232,7 @@
      height: 105px;
      width: 100%;
  }
- 
+
  #sortContainer>div {
      width: 850px;
      margin: 0 auto;
@@ -243,7 +243,7 @@
      border-top-right-radius: 12px;
      overflow: hidden;
  }
- 
+
  .sortButton {
      width: 16.66666%;
      height: 80px;
@@ -252,32 +252,31 @@
      cursor: pointer;
      transition: .6s;
  }
- 
+
  .sortButton:hover {
      background-color: #1982EA;
      color: white;
  }
- 
+
  .selected {
      background-color: #4096ee;
      color: white;
-     text-shadow: 0 0 5px white;
  }
- 
+
  .title {
      position: absolute;
      bottom: 5px;
      width: 100%;
      text-align: center;
  }
- 
+
  .logo {
      position: absolute;
      top: 0px;
      width: 100%;
      height: 55px;
  }
- 
+
  .logow {
      position: absolute;
      opacity: 0;
@@ -285,15 +284,15 @@
      width: 100%;
      height: 55px;
  }
- 
+
  .sortButton:hover .logow {
      opacity: 1;
  }
- 
+
  .selected .logow {
      opacity: 1;
  }
- 
+
  #credits {
      position: fixed;
      bottom: 0;
@@ -303,30 +302,20 @@
      line-height: 25px;
      height: 25px;
      font-size: 1em;
+     font-weight: 200;
      text-align: center;
      background: #0680CD;
-     color: rgba(255, 255, 255, 0.8);
-     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3498e5+13,235f9c+100,235f9c+100 */
-     background: #3498e5;
-     /* Old browsers */
-     background: -moz-linear-gradient(top, #3498e5 13%, #235f9c 100%, #235f9c 100%);
-     /* FF3.6-15 */
-     background: -webkit-linear-gradient(top, #3498e5 13%, #235f9c 100%, #235f9c 100%);
-     /* Chrome10-25,Safari5.1-6 */
-     background: linear-gradient(to bottom, #3498e5 13%, #235f9c 100%, #235f9c 100%);
-     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3498e5', endColorstr='#235f9c', GradientType=0);
-     /* IE6-9 */
-     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
+     color: rgba(255, 255, 255, 0.9);
+     background: #327eca;
  }
- 
+
  @media (max-width: 960px) {
      #sortContainer>div {
          width: 100%;
          border-radius: 0;
      }
  }
- 
+
  @media (max-width: 750px) {
      #header {
          font-size: 25px;
@@ -414,7 +403,6 @@
      .title {
          bottom: 5px;
          font-size: .9em;
-         text-shadow: 0 0 3px white;
      }
      .logo {
          position: absolute;
