@@ -1,8 +1,10 @@
 # Smart Home Lighting App
 
-![Screenshot](screenshot.png)
+![Desktop Screenshot](./screenshots/screenshot-v2.png)
 
-Developed by Harvey Shi (@rvshi) in spring 2016, with help from Lauren Shum, Patrick Grady, and Suyash Kumar.
+This project is currently maintained by Rahul GS (@rahulgs12).
+
+Originally designed and developed by Harvey Shi (@rvshi) in the spring of 2016, with help from Lauren Shum, Patrick Grady, and Suyash Kumar.
 
 - Written for [Node.js](https://nodejs.org/en/)
 - Uses [socket.io](https://socket.io/) for real-time updates
