@@ -1,40 +1,32 @@
-module.exports = {
-    setupSocket: function (http_server, lights, leds) {
-        // setup socket.io
-        var io = require('socket.io')(http_server);
+const io = require('socket.io')();
+const {categories, lights, changeStatus} = require('./lighting-control.js');
+const socketPort = 8000;
+let statusData = new Array(lights.length).fill(false);
 
-        io.on('connection', function (socket) {
-            console.log('a user has connected');
+const setupSocket = () => {
+  // setup socket.io
+  io.on('connection', (socket) => {
+    console.log('a user has connected');
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    });
+    socket.on('led', (msg) => {
+      leds.ledUpdate(msg);
+    });
+    socket.on('update', (message) => {
+      const {isOn, lightIDs} = message;
+      const newStatus = isOn ? 'ON' : 'OFF';
+      changeStatus(newStatus, lightIDs);
+      statusData = statusData.map((status, index) => {
+        return lights[index][1].every(val => lightIDs.includes(val)) ? isOn :
+                                                                       status;
+      });
+      console.log(lightIDs, newStatus);
+      io.sockets.emit('update', statusData);  // update all connected users
+    });
+    socket.emit('init', {categories, lights, statusData});
+  });
+  io.listen(socketPort);
+};
 
-            socket.on('disconnect', function () {
-                console.log('user disconnected');
-            });
-
-            socket.on('led', function (msg) {
-                leds.ledUpdate(msg);
-            });
-
-            socket.on('change status', function (twoMsg) {
-                // process socket message
-                var msgStrs = twoMsg.split(".");
-                var msg = msgStrs[0];
-                var lightGroups = JSON.parse("[" + msgStrs[1] + "]");
-
-                // toggle lights
-                lights.changeStatus(msg, lightGroups);
-
-                console.log('Status: ', msg);
-
-                // edit combo
-                io.sockets.emit('change status', twoMsg);
-
-                // edit individual lights, if any
-                if (lightGroups.length > 1) {
-                    for (var w = 0; w < lightGroups.length; ++w) {
-                        io.sockets.emit('change status', msg + "." + lightGroups[w]);
-                    }
-                }
-            });
-        });
-    }
-}
+module.exports = setupSocket;

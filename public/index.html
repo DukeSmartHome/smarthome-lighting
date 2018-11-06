@@ -2,36 +2,41 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- for iOS  -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" href="img/ios-icon.png">
 
-    <title>Smart Home Lightboard</title>
+    <!-- for Android -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
 
+    <!-- favicons -->
     <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
 
+    <!-- CSS -->
     <link href="https://fonts.googleapis.com/css?family=Muli:200,400,700" rel="stylesheet">
     <link href='css/main.less' rel='stylesheet/less' type='text/css'>
     <script type='application/javascript' src='./js/less.min.js'></script>
+
+    <title>Smart Home Lightboard</title>
 </head>
 
 <body>
-    <div id="header">
-        Smart Home Lightboard
-    </div>
-    <div id="headerSpace"></div>
-    <div id="groupContainer"></div>
-    <div id="vSpace"></div>
-    <div id="sortContainer">
-        <div></div>
-    </div>
-    <div id="credits">A Duke Smart Home Project</div>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script type='application/javascript' src='./js/fastclick.js'></script>
-    <script type='application/javascript' src="/socket.io/socket.io.js"></script>
-    <script type='application/javascript' src='./js/main.js'></script>
+    <script type='application/javascript'>
+        FastClick.attach(document.body);
+    </script>
+    <noscript>
+        You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
 </body>
 
 </html>

@@ -1,34 +1,15 @@
 // setup express
-var express = require('express');
-var app = express();
+const express = require('express');
+const path = require('path');
+const app = express();
+const favicon = require('serve-favicon');
+const setupSocket = require('./socket-io.js');
 
 // Set up static serving of front end:
-app.use(express.static(__dirname + '/public')); // HTML, CSS
-
-
-// setup favicon
-var favicon = require('serve-favicon');
+app.use(express.static(path.join(__dirname, 'build')));  // HTML, CSS
 app.use(favicon(__dirname + '/public/favicon.ico'));
-
-
-// setup http server
-var http = require('http');
-var http_server = http.Server(app);
-
-http_server.listen(80, function () {
-    console.log('Listening on port 80');
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
-
-
-// require the lighting module
-var lights = require('./lighting-control.js');
-
-
-// require the LED module for RGB light strips
-//var leds = require('./led-control.js'); 
-let leds = null;
-// this is currently null, since no LED controllers are set up
-
-// socket.io module
-var socket = require('./socket-io.js')
-socket.setupSocket(http_server, lights, leds);
+app.listen(process.env.PORT || 8080);
+setupSocket();

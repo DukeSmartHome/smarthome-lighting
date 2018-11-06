@@ -1,22 +1,41 @@
 {
   "name": "smarthome-lighting",
   "version": "1.0.0",
+  "license": "ISC",
+  "private": true,
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "superagent": ">=3.7.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "mongoose": "^4.13.14",
     "particle-api-js": "^6.4.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-scripts": "2.1.1",
     "serialport": "^6.2.2",
     "serve-favicon": "^2.5.0",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1",
+    "superagent": ">=3.7.0"
   },
   "devDependencies": {},
+  "proxy": "http://localhost:8080",
   "scripts": {
-    "start": "node app.js"
+    "server": "node app.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/suyashkumar/smarthome-lighting.git"
