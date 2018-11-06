@@ -2,16 +2,24 @@
 const SerialPort = require('serialport');  // include serialport
 const serialPort = new SerialPort('/dev/ttyUSB0', {baudRate: 9600});
 
-const categories = ['all', 'social', 'rooms', 'bath', 'labs', 'outside'];
-const lights = [
-  ['Dirty Lab', [26], 'labs'],
-  ['Clean Lab Cabinets', [3], 'labs'],
-  ['Clean Lab', [4], 'labs'],
+const peopleRooms = [
   ['Anuj & Matt', [6], 'rooms'],          // SW
   ['David & Ricardo', [7], 'rooms'],      // Downstairs
   ['Flo & Lauren', [9], 'rooms'],         // NW
   ['Elizabeth & Sakura', [21], 'rooms'],  // NE
   ['Mac & Rebecca', [28], 'rooms'],       // SE
+];
+
+const categories = ['all', 'social', 'rooms', 'bath', 'labs', 'outside'];
+const lights = [
+  ['Dirty Lab', [26], 'labs'],
+  ['Clean Lab Cabinets', [3], 'labs'],
+  ['Clean Lab', [4], 'labs'],
+  ['Southwest Bedroom', [6], 'rooms'],   // SW
+  ['Downstairs Bedroom', [7], 'rooms'],  // Downstairs
+  ['Northwest Bedroom', [9], 'rooms'],   // NW
+  ['Northeast Bedroom', [21], 'rooms'],  // NE
+  ['Southeast Bedroom', [28], 'rooms'],  // SE
   ['West Balcony', [35], 'outside'],
   ['Front Porch', [35], 'outside'],
   ['Back Porch', [36], 'outside'],
