@@ -10,16 +10,19 @@ const peopleRooms = [
   ['Mac & Rebecca', [28], 'rooms'],       // SE
 ];
 
-const categories = ['all', 'social', 'rooms', 'bath', 'labs', 'outside'];
-const lights = [
-  ['Dirty Lab', [26], 'labs'],
-  ['Clean Lab Cabinets', [3], 'labs'],
-  ['Clean Lab', [4], 'labs'],
+const anonymizedRooms = [
   ['Southwest Bedroom', [6], 'rooms'],   // SW
   ['Downstairs Bedroom', [7], 'rooms'],  // Downstairs
   ['Northwest Bedroom', [9], 'rooms'],   // NW
   ['Northeast Bedroom', [21], 'rooms'],  // NE
   ['Southeast Bedroom', [28], 'rooms'],  // SE
+];
+
+const categories = ['all', 'social', 'rooms', 'bath', 'labs', 'outside'];
+const lights = [
+  ['Dirty Lab', [26], 'labs'],
+  ['Clean Lab Cabinets', [3], 'labs'],
+  ['Clean Lab', [4], 'labs'],
   ['West Balcony', [35], 'outside'],
   ['Front Porch', [35], 'outside'],
   ['Back Porch', [36], 'outside'],
@@ -32,7 +35,8 @@ const lights = [
   ['Upper Floor', [0, 2], 'social'],
   ['East Upper Bathroom', [17], 'bath'],
   ['West Upper Bathroom', [15], 'bath'],
-  ['West Lower Bathroom', [13], 'bath']
+  ['West Lower Bathroom', [13], 'bath'],
+  ...peopleRooms,
 ].sort((a, b) => {
   if (a[0] === b[0]) {
     return 0;
