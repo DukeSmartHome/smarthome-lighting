@@ -9,7 +9,7 @@ export default ({ id, selected, handleClick }) => {
       onClick={() => handleClick(id)}
     >
       <div className="title">{name}</div>
-      <div className="logow" style={{
+      <div className="icon" style={{
         backgroundImage: `url(./img/${id.toLowerCase()}_w.svg`
       }}>
       </div>

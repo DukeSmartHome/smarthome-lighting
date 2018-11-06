@@ -7,11 +7,12 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
     "particle-api-js": "^6.4.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-jss": "^8.6.1",
     "react-scripts": "2.1.1",
     "serialport": "^6.2.2",
     "serve-favicon": "^2.5.0",
@@ -22,8 +23,8 @@
   "devDependencies": {},
   "proxy": "http://localhost:8080",
   "scripts": {
-    "server": "node app.js",
-    "start": "react-scripts start",
+    "backend": "node app.js",
+    "frontend": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

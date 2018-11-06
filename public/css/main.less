@@ -46,6 +46,22 @@ body {
     border-bottom: @border-width solid darken(@main-color, 10%);
 }
 
+.settingsButton {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40px 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 50px;
+    width: 50px;
+    opacity: 0.7;  
+}
+
+.settingsButton:hover, {
+    opacity: 1;
+}
+
 #headerSpace {
     height: 90px;
     margin-bottom: 5px;
@@ -283,7 +299,7 @@ body {
     text-align: center;
 }
 
-.logow {
+.icon {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 33px 33px;
@@ -294,8 +310,8 @@ body {
     opacity: 0.7;
 }
 
-.sortButton:hover .logow,
-.selected .logow {
+.sortButton:hover .icon,
+.selected .icon {
     opacity: 1;
 }
 
@@ -326,6 +342,14 @@ body {
         font-size: 25px;
         height: 60px;
         line-height: 60px;
+    }
+    .settingsButton{
+        background-size: 25px 25px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        height: 30px;
+        width: 30px;
     }
     #headerSpace {
         height: 60px;
@@ -414,7 +438,7 @@ body {
         width: 100%;
         height: 38px;
     }
-    .logow {
+    .icon {
         position: absolute;
         top: 5px;
         width: 100%;
