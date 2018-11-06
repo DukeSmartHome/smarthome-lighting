@@ -1,10 +1,6 @@
-const io = require('socket.io')();
-const {categories, lights, changeStatus} = require('./lighting-control.js');
-const socketPort = 8000;
-let statusData = new Array(lights.length).fill(false);
-
-const setupSocket = () => {
-  // setup socket.io
+const setupSocket = (io) => {
+  const {categories, lights, changeStatus} = require('./lighting-control.js');
+  let statusData = new Array(lights.length).fill(false);
   io.on('connection', (socket) => {
     console.log('a user has connected');
     socket.on('disconnect', () => {
@@ -26,7 +22,6 @@ const setupSocket = () => {
     });
     socket.emit('init', {categories, lights, statusData});
   });
-  io.listen(socketPort);
 };
 
 module.exports = setupSocket;

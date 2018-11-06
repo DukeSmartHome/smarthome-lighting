@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
+import io from 'socket.io-client';
 
 import './App.css';
 import Lights from './components/Lights';
 import Categories from './components/Categories';
 
-import openSocket from 'socket.io-client';
-import { socketURL } from './constants';
-
-const socket = openSocket(socketURL);
+const socket = io();
 
 class App extends Component {
   constructor(props) {
