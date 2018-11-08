@@ -1,27 +1,28 @@
 import React from 'react';
+import withStyles from 'react-jss';
 
 import Button from '../Button';
 
-const styles = {
+const style = (theme) => ({
   login: {
     textAlign: 'center',
     color: 'white',
-    padding: '50px 0',
+    padding: '20px 0',
   },
   input: {
     padding: '8px 12px',
     fontSize: '15px',
     outline: 0,
-    border: 0,
     color: 'white',
+    fontFamily: 'inherit',
     background: 'rgba(0, 0, 0, 0.5)',
-    borderBottom: '2px solid rgba(255,255,255, 0.8)',
+    border: theme.getBorder('rgba(255,255,255, 0.3)'),
     display: 'block',
     margin: '0 auto',
     borderRadius: '6px',
     marginBottom: '20px',
   },
-}
+});
 
 class Login extends React.Component {
   state = {
@@ -39,12 +40,12 @@ class Login extends React.Component {
   }
 
   render() {
-    const { login } = this.props;
+    const { login, classes } = this.props;
     const { password } = this.state;
     return (
-      <div style={styles.login}>
+      <div className={classes.login}>
         <input
-          style={styles.input}
+          className={classes.input}
           type="password"
           placeholder="Password"
           onKeyUp={this.handleKeyPress}
@@ -59,4 +60,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withStyles(style)(Login);

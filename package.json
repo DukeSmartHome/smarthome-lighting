@@ -12,6 +12,7 @@
     "particle-api-js": "^6.4.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-fastclick": "^3.0.2",
     "react-jss": "^8.6.1",
     "react-scripts": "2.1.1",
     "serialport": "^6.2.2",

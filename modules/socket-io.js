@@ -41,7 +41,7 @@ const setupSocket = (io) => io.on('connection', (socket) => {
     if (authenticate(socket, data)) {
       postAuthenticate(io, socket);
     } else {
-      console.log('authentication failed');
+      socket.emit('authenticated', false);
     }
   });
   socket.on('disconnect', () => console.log('user disconnected'));

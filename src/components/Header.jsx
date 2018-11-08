@@ -1,9 +1,8 @@
 import React from 'react';
 import withStyles from 'react-jss';
-import { applyTheme, theme } from '../theme';
 
 const style = (theme) => {
-  const smallerHeader = theme.headerHeight * 0.6;
+  const smallerHeader = theme.headerHeight * 0.75;
   const smallerLogo = smallerHeader * 0.5;
   return {
     header: {
@@ -12,7 +11,7 @@ const style = (theme) => {
       top: '0',
       width: '100%',
       textAlign: 'center',
-      fontWeight: 'lighter',
+      fontWeight: 'normal',
       color: 'rgba(255, 255, 255, 0.9)',
       background: theme.primary,
       lineHeight: theme.headerHeight + 'px',
@@ -21,7 +20,6 @@ const style = (theme) => {
       borderBottom: theme.borderWidth + ' solid ' + theme.secondary
     },
     settingsButton: {
-      backgroundImage: 'url(./img/settings.svg)',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
       backgroundSize: '40px 40px',
@@ -30,10 +28,18 @@ const style = (theme) => {
       right: 20,
       height: 50,
       width: 50,
-      opacity: '0.7'
+      opacity: 0.5,
+      '&:hover': {
+        opacity: 0.8,
+      }
+    },
+    inSettings: {
+      opacity: 1,
     },
     placeholder: {
       height: theme.headerHeight,
+      marginBottom: 35,
+      width: '100%',
     },
     [theme.smaller]: {
       header: {
@@ -51,25 +57,26 @@ const style = (theme) => {
       },
       placeholder: {
         height: smallerHeader,
+        marginBottom: 0,
       },
     }
   }
 };
 
-const Header = ({ classes, view, toggleView }) => (
+const Header = ({ classes, view, toggleView, theme }) => (
   <React.Fragment>
-    <div className={classes.header}>
-      Lightboard
-    {view !== 'login' && <div
+    <div className={classes.header} data-theme={theme}>
+      {view.charAt(0).toUpperCase() + view.slice(1)}
+      {view !== 'login' && <div
         onClick={toggleView}
-        className={classes.settingsButton}
+        className={`${classes.settingsButton} ${view === 'settings' ? classes.inSettings : null}`}
         style={{
-          opacity: view === 'settings' ? 1.0 : 0.5,
-        }} />}
+          backgroundImage: `url(./img/${view !== 'settings' ? 'settings' : 'close'}.svg)`,
+        }} />
+      }
     </div>
-
     <div className={classes.placeholder} />
   </React.Fragment>
 );
 
-export default withStyles(applyTheme(style))(Header);
+export default withStyles(style)(Header);

@@ -1,19 +1,19 @@
 import React from 'react';
+import Option from '../Option';
 
-import Light from './Light';
-
-export default ({ lightData, statusData, toggleLight }) => {
+export const Lights = ({ lightData, statusData, toggleLight }) => {
   return (
-    <div id="groupContainer">
+    <div>
       {lightData.map((light, index) => (
-        <Light
+        <Option
           name={light[0]}
           key={light[0]}
-          ids={light[1]}
-          isOn={statusData[index]}
-          toggleLight={toggleLight}
+          value={statusData[index]}
+          onToggle={() => toggleLight(!statusData[index], light[1])}
         />
       ))}
     </div>
   )
 };
+
+export default Lights;
