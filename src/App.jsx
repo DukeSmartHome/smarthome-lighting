@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
+import withStyles from 'react-jss';
+import { applyTheme } from './theme';
 import io from 'socket.io-client';
 
+import Header from './components/Header';
 import Settings from './components/Settings';
 import Login from './components/Login';
 import Lights from './components/Lights';
 import Categories from './components/Categories';
 
 const socket = io();
+
+const style = (theme) => ({
+  root: {
+    background: theme.background,
+    minHeight: '100vh',
+  },
+});
 
 class App extends Component {
   constructor(props) {
@@ -46,6 +56,7 @@ class App extends Component {
     { view: 'settings' } : { view: 'lights' });
 
   render() {
+    const { classes } = this.props;
     const {
       category, statusData, lights, categories, view
     } = this.state;
@@ -57,43 +68,38 @@ class App extends Component {
       : statusData.filter((status, index) => lights[index][2] === category);
 
     return (
-      <div className="App">
-        <div id="header">
-          Lightboard
-          {view !== 'login' && <div
-            onClick={this.toggleView}
-            className="settingsButton"
-            style={{
-              opacity: view === 'settings' ? 1.0 : 0.5,
-              backgroundImage: 'url(./img/settings.svg)'
-            }} />}
+      <div className={classes.root}>
+        <Header
+          view={view}
+          toggleView={this.toggleView}
+        />
+        <div className={classes.wrapper}>
+          {view === 'login' ?
+            <Login login={this.login} />
+            : view === 'lights'
+              ? <div>
+                <Lights
+                  lightData={filteredLights}
+                  statusData={filteredStatuses}
+                  toggleLight={this.toggleLight}
+                />
+
+                <div id="vSpace"></div>
+
+                <Categories
+                  categories={categories}
+                  selected={category}
+                  handleClick={this.changeCat}
+                />
+              </div> :
+              <Settings
+                logout={this.logout}
+              />}
         </div>
-        <div id="headerSpace"></div>
-        {view === 'login' ?
-          <Login login={this.login} />
-          : view === 'lights'
-            ? <div>
-              <Lights
-                lightData={filteredLights}
-                statusData={filteredStatuses}
-                toggleLight={this.toggleLight}
-              />
-
-              <div id="vSpace"></div>
-
-              <Categories
-                categories={categories}
-                selected={category}
-                handleClick={this.changeCat}
-              />
-            </div> :
-            <Settings
-              logout={this.logout}
-            />}
         <div id="credits">A Duke Smart Home Project</div>
       </div>
     );
   }
 }
 
-export default App;
+export default withStyles(applyTheme(style))(App);

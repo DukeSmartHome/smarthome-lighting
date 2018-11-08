@@ -1,50 +1,6 @@
-@main-font: 'Lato', sans-serif;
 @main-color: #107ce7;
 @on-color: rgb(163, 231, 107);
 @border-width: 2px;
-
-html {
-    min-height: 100%;
-    background-size: cover;
-    width: 100%;
-    margin: 0;
-    overflow-y: scroll;
-}
-
-body {
-    width: 100%;
-    margin: 0;
-    background: url(../img/bg.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-family: @main-font;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-#header {
-    z-index: 9999;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    text-align: center;
-    font-family: @main-font;
-    font-size: 2.2em;
-    font-weight: normal;
-    color: rgba(255, 255, 255, 0.9);
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3498e5+13,235f9c+100,235f9c+100 */
-    background: @main-color;
-    line-height: 90px;
-    height: 90px;
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
-    border-bottom: @border-width solid darken(@main-color, 10%);
-}
 
 .settingsButton {
     background-repeat: no-repeat;
@@ -81,8 +37,6 @@ body {
     border-radius: 6px;
     color: black;
     background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    transition: .6s;
     cursor: pointer;
 }
 
@@ -98,7 +52,6 @@ body {
 .ledFunc {
     text-transform: capitalize;
     background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     display: inline-block;
     float: left;
     padding: 6px 12px;
@@ -162,12 +115,10 @@ body {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 6px;
     color: rgba(255, 255, 255, 0.8);
-    transition: .6s;
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     position: relative;
-    font-family: @main-font;
     font-weight: normal;
 }
 
@@ -264,7 +215,6 @@ body {
     width: 850px;
     margin: 0 auto;
     height: 80px;
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.16);
     border-top-left-radius: @sort-radius;
     border-top-right-radius: @sort-radius;
     overflow: hidden;
@@ -278,7 +228,7 @@ body {
     float: left;
     position: relative;
     cursor: pointer;
-    transition: .6s color, background-color;
+    transition: color .6s;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -338,19 +288,6 @@ body {
 }
 
 @media (max-width: 750px) {
-    #header {
-        font-size: 25px;
-        height: 60px;
-        line-height: 60px;
-    }
-    .settingsButton{
-        background-size: 25px 25px;
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        height: 30px;
-        width: 30px;
-    }
     #headerSpace {
         height: 60px;
     }
@@ -372,7 +309,6 @@ body {
         height: 45px;
     }
     .ledFunc {
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.23);
         display: inline-block;
         float: left;
         text-align: center;

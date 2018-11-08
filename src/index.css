@@ -1,0 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+html {
+  min-height: 100%;
+  background-size: cover;
+  width: 100%;
+  margin: 0;
+  overflow-y: scroll;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
