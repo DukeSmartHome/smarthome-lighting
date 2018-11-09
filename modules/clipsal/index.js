@@ -3,39 +3,35 @@ const SerialPort = require('serialport');
 const {categories, lights} = require('./lights');
 const {decToHexByte, hexToASCII, computeCheckSum} = require('./math');
 
-const serialPort = new SerialPort('/dev/ttyUSB0', {baudRate: 9600});
-
-serialPort.on('readable', () => {
-  console.log('New data:', serialPort.read());
-});
-
 const commands = {
-  on: '\\05380079',
-  off: '\\05380001',
+  init: ['~~~', 'A3210038g', 'A3420002g', 'A3300079g'],
+  on: (whichLight) => '\\05380079' + decToHexByte(whichLight),
+  off: (whichLight) => '\\05380001' + decToHexByte(whichLight),
 };
 
-const getCommand = (command, whichLight) => {
-  const baseCommand = command + decToHexByte(whichLight);
-  const hexCommand = (baseCommand + computeCheckSum(baseCommand));
-  return hexToASCII(hexCommand.toUpperCase());
+const serialPort = new SerialPort('/dev/ttyUSB0', {baudRate: 9600});
+
+const sendCommand = (command) => {
+  const hexCommand = (command + computeCheckSum(command));
+  const asciiCommand = hexToASCII(hexCommand.toUpperCase());
+  serialPort.write(Buffer.from(asciiCommand, 'hex'));
 };
 
 const changeStatus = (on, whichLights) => {
-  const status = on ? 'ON' : 'OFF';
   if (on) {
-    whichLights.forEach(light => {
-      const bufferCmd = getCommand(commands.on, light);
-      console.log(light + ' ' + status + ' ' + bufferCmd);
-      serialPort.write(Buffer.from(bufferCmd, 'hex'));
-    });
+    whichLights.forEach(light => sendCommand(commands.on(light)));
   } else {
-    whichLights.forEach(light => {
-      const bufferCmd = getCommand(commands.off, light);
-      console.log(light + ' ' + status + ' ' + bufferCmd);
-      serialPort.write(Buffer.from(bufferCmd, 'hex'));
-    });
+    whichLights.forEach(light => sendCommand(commands.off(light)));
   }
 };
+
+serialPort.on('open', () => {
+  console.log('Serial port opened');
+  commands.init.forEach(cmd => sendCommand(cmd));
+});
+serialPort.on('readable', () => {
+  console.log('New data:', serialPort.read());
+});
 
 // examples and expected return values
 // changeStatus(true, [20]);  // 5c3035333830303739313433360D
