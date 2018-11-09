@@ -21,16 +21,22 @@ const updateStatusData = (newUpdates) => {
     }
   });
 
+  let valueChanged = false;
   statusData = statusData.map((prevStatus, index) => {
     const groups = lights[index][1];
+    let newStatus;
     if (groups.length === 1 && groups[0] in updates) {
-      return updates[groups[0]];
+      newStatus = updates[groups[0]];
+    } else {
+      newStatus = groups.every(g => g in updates && updates[g]);
     }
-    // update for the whole group
-    return groups.every(g => g in updates && updates[g]);
+    if (!valueChanged && newStatus !== prevStatus) {
+      valueChanged = true;
+    }
+    return newStatus;
   });
 
-  if (io) {
+  if (valueChanged && io) {
     io.sockets.emit('update', statusData);  // update all connected users
   }
 };
