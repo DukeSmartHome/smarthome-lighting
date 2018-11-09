@@ -19,5 +19,8 @@ app.get('/', (req, res) => {
 });
 httpServer.listen(port, () => console.log('Server started on port ' + port));
 
-const setupSocket = require('./modules/socket-io.js');
+const {initStatusData} = require('./modules/statusData.js');
+initStatusData(io);
+
+const {setupSocket} = require('./modules/socket-io.js');
 setupSocket(io);

@@ -41,7 +41,25 @@ const lights = [
   }
 });
 
+const uniqueLights = new Set();
+lights.forEach(light => light[1].forEach(id => uniqueLights.add(id)));
+const unique = Array.from(uniqueLights).sort((a, b) => a - b);
+const statusMap = {};  // contains mappings from unique to lights
+unique.forEach(u => {
+  let index = -1;
+  lights.forEach((light, i) => {
+    if (light[1].length === 1 && light[1][0] === u) {  // unique match
+      index = i;
+    } else if (light[1].length > 1 && light[1].includes(u)) {
+      index = i;
+    }
+  });
+  statusMap[u] = index;
+});
+
 module.exports = {
   categories,
-  lights
+  lights,
+  unique,
+  statusMap,
 };

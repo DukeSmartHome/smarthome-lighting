@@ -1,7 +1,6 @@
-const {categories, lights, changeStatus} = require('./clipsal');
 const {verifyPassword, verifyToken, getToken} = require('./auth');
-
-let statusData = new Array(lights.length).fill(false);
+const {getStatusData, updateStatusData} = require('./statusData');
+const {categories, lights, changeStatus} = require('./clipsal');
 
 const authenticate = (socket, data) => {
   console.log('a user has requested authentication');
@@ -24,14 +23,17 @@ const postAuthenticate = (io, socket) => {
   });
   socket.on('update', (message) => {
     const {isOn, lightIDs} = message;
-    changeStatus(isOn, lightIDs);
-    statusData = statusData.map((status, index) => {
-      return lights[index][1].every(val => lightIDs.includes(val)) ? isOn :
-                                                                     status;
-    });
-    io.sockets.emit('update', statusData);  // update all connected users
+    const updates = {};
+    changeStatus(isOn, lightIDs);  // change light status in clipsal hardware
+    lightIDs.forEach((lightID) => {updates[lightID] = isOn});
+    updateStatusData(updates);
   });
-  socket.emit('authenticated', {categories, lights, statusData});
+  const statusData = getStatusData();
+  socket.emit('authenticated', {
+    categories,
+    lights,
+    statusData,
+  });
 };
 
 const setupSocket = (io) => io.on('connection', (socket) => {
@@ -45,4 +47,4 @@ const setupSocket = (io) => io.on('connection', (socket) => {
   socket.on('disconnect', () => console.log('user disconnected'));
 });
 
-module.exports = setupSocket;
+module.exports = {setupSocket};
