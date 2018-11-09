@@ -1,4 +1,4 @@
-const {categories, lights, changeStatus} = require('./lighting-control');
+const {categories, lights, changeStatus} = require('./clipsal');
 const {verifyPassword, verifyToken, getToken} = require('./auth');
 
 let statusData = new Array(lights.length).fill(false);
@@ -24,13 +24,11 @@ const postAuthenticate = (io, socket) => {
   });
   socket.on('update', (message) => {
     const {isOn, lightIDs} = message;
-    const newStatus = isOn ? 'ON' : 'OFF';
-    changeStatus(newStatus, lightIDs);
+    changeStatus(isOn, lightIDs);
     statusData = statusData.map((status, index) => {
       return lights[index][1].every(val => lightIDs.includes(val)) ? isOn :
                                                                      status;
     });
-    console.log(lightIDs, newStatus);
     io.sockets.emit('update', statusData);  // update all connected users
   });
   socket.emit('authenticated', {categories, lights, statusData});
