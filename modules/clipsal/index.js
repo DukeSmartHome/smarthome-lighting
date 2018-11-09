@@ -1,5 +1,6 @@
 // setup serialport library
 const SerialPort = require('serialport');
+const Delimiter = require('@serialport/parser-delimiter');
 const {categories, lights} = require('./lights');
 const {decToHexByte, hexToASCII, computeCheckSum} = require('./math');
 
@@ -9,7 +10,9 @@ const commands = {
   off: (whichLight) => '\\05380001' + decToHexByte(whichLight),
 };
 
-const serialPort = new SerialPort('/dev/ttyUSB0', {baudRate: 9600});
+const serialPort = new SerialPort('/dev/ttyUSB0', {
+  baudRate: 9600,
+});
 
 const sendCommand = (command) => {
   const hexCommand = (command + computeCheckSum(command));
@@ -28,9 +31,10 @@ const changeStatus = (on, whichLights) => {
 serialPort.on('open', () => {
   console.log('Serial port opened');
   commands.init.forEach(cmd => sendCommand(cmd));
-});
-serialPort.on('readable', () => {
-  console.log('New data:', serialPort.read());
+  const parser = serialPort.pipe(new Delimiter({ delimiter: '\n' }))
+  parser.on('data', (data) => {
+    console.log(data.toString());
+  });
 });
 
 // examples and expected return values
