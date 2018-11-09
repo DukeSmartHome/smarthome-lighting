@@ -1,6 +1,6 @@
 const decToHexByte = (decimal) => {
   let hexByte = decimal.toString(16);                // convert light to hex
-  if (decimal.length == 1) decimal = '0' + decimal;  // zero pad
+  if (hexByte.length == 1) hexByte = '0' + hexByte;  // zero pad
   return hexByte;
 };
 
