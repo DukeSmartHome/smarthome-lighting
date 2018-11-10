@@ -19,7 +19,9 @@ const computeCheckSum = (hexStr) => {
   for (let i = 1; i < hexStr.length - 1; i += 2) {
     byteSum += parseInt(hexStr[i] + hexStr[i + 1], 16);
   }
-  const modded = (byteSum % 256).toString(2);  // take mod and convert to binary
+  const modded = (byteSum % 256)
+                     .toString(2)
+                     .padStart(8, '0');  // take mod and convert to binary
   // compute two's complement (flip bits and add 1)
   let checkSumBinary = '';
   for (let i = 0; i < modded.length; i++) {

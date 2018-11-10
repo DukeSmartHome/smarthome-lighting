@@ -16,9 +16,8 @@ const serialPort = new SerialPort('/dev/ttyUSB0', {
 });
 
 const sendCommand = (command) => {
-  const hexCommand = (command + computeCheckSum(command));
-  const asciiCommand = hexToASCII(hexCommand.toUpperCase());
-console.log(asciiCommand);
+  const hexCommand = (command + computeCheckSum(command)).toUpperCase() + 'g';
+  const asciiCommand = hexToASCII(hexCommand);
   serialPort.write(Buffer.from(asciiCommand, 'hex'));
 };
 
@@ -66,15 +65,12 @@ const parseMMI = (data) => {
 
 serialPort.on('open', () => {
   console.log('Serial port opened');
-  // commands.init.forEach(cmd => sendCommand(cmd));
-  //const parser = serialPort.pipe(new Delimiter({delimiter: '\n'}))
-  //parser.on('data', (data) => {
-    //parseMMI(data.toString());
-  //});
+  commands.init.forEach(cmd => sendCommand(cmd));
+  const parser = serialPort.pipe(new Delimiter({delimiter: '\n'}))
+  parser.on('data', (data) => {
+    parseMMI(data.toString());
+  });
 });
-
-// examples and expected return values
-changeStatus(false, [0,2]);  // 5c3035333830303739313433360D
 
 module.exports = {
   categories,
