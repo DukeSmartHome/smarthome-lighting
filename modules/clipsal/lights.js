@@ -16,7 +16,7 @@ const individualLights = [
   ['Back Patio', [8], 'outside'],
   ['Kitchen Rail', [11], 'social'],
   ['Stairs Rail', [12], 'social'],
-  ['Downstairs Bathroom', [13], 'rooms'],
+  ['Downstairs Bathroom', [13], 'bath'],
   ['West Upstairs Shower', [14], 'bath'],
   ['West Upstairs Bathroom', [15], 'bath'],
   ['Downstairs Shower', [16], 'bath'],
@@ -35,7 +35,7 @@ const groupLights = [
   ['Hardware Lab Cabinets', [27, 33], 'labs'],
   ['Main Room', [11, 12, 31], 'social'],
   ['Media Room', [20, 24], 'social'],
-  ['All Outside', [8, 34, 35, 36], 'social'],
+  ['All Outside', [8, 34, 35, 36], 'outside'],
 ];
 
 const lights = [
