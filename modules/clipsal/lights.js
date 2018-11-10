@@ -14,6 +14,8 @@ const anonymizedRooms = [
   ['Southeast Bedroom', [28], 'rooms'],  // SE
 ];
 
+const testLights = Array(50).fill(0).map((n, i) => [i, [i], 'outside']);
+
 const categories = ['all', 'social', 'rooms', 'bath', 'labs', 'outside'];
 const lights = [
   ['Dirty Lab', [26], 'labs'],
