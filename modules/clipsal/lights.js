@@ -1,3 +1,6 @@
+const testLights = Array(50).fill(0).map((n, i) => [i, [i], 'outside']);
+
+const categories = ['all', 'social', 'rooms', 'bath', 'labs', 'outside'];
 const peopleRooms = [
   ['Anuj & Matt', [6], 'rooms'],          // SW
   ['David & Ricardo', [7], 'rooms'],      // Downstairs
@@ -5,35 +8,39 @@ const peopleRooms = [
   ['Elizabeth & Sakura', [21], 'rooms'],  // NE
   ['Mac & Rebecca', [28], 'rooms'],       // SE
 ];
-
-const anonymizedRooms = [
-  ['Southwest Bedroom', [6], 'rooms'],   // SW
-  ['Downstairs Bedroom', [7], 'rooms'],  // Downstairs
-  ['Northwest Bedroom', [9], 'rooms'],   // NW
-  ['Northeast Bedroom', [21], 'rooms'],  // NE
-  ['Southeast Bedroom', [28], 'rooms'],  // SE
-];
-
-const testLights = Array(50).fill(0).map((n, i) => [i, [i], 'outside']);
-
-const categories = ['all', 'social', 'rooms', 'bath', 'labs', 'outside'];
-const lights = [
-  ['Dirty Lab', [26], 'labs'],
-  ['Clean Lab Cabinets', [3], 'labs'],
-  ['Clean Lab', [4], 'labs'],
-  ['West Balcony', [35], 'outside'],
-  ['Front Porch', [35], 'outside'],
-  ['Back Porch', [36], 'outside'],
-  ['Stairs', [12], 'social'],
+const individualLights = [
+  ['Loft Space', [0], 'social'],
+  ['Main Ceiling', [2], 'social'],
+  ['Computer Lab Cabinets', [3], 'labs'],
+  ['Computer Lab', [4], 'labs'],
+  ['Back Patio', [8], 'outside'],
+  ['Kitchen Rail', [11], 'social'],
+  ['Stairs Rail', [12], 'social'],
+  ['Downstairs Bathroom', [13], 'rooms'],
+  ['West Upstairs Shower', [14], 'bath'],
+  ['West Upstairs Bathroom', [15], 'bath'],
+  ['Downstairs Shower', [16], 'bath'],
+  ['East Upper Bathroom', [17], 'bath'],
+  ['Basement', [19], 'labs'],
+  ['Back Staircase', [23], 'social'],
+  ['Hardware Lab', [26], 'labs'],
   ['White Boards', [31], 'social'],
-  ['Kitchen', [11], 'social'],
+  ['Basement Stairs', [32], 'labs'],
+  ['Upstairs Balcony', [34], 'outside'],
+  ['Front Porch (East)', [35], 'outside'],
+  ['Back Pole Light', [36], 'outside'],
   ['Kitchen Cabinets', [38], 'social'],
+];
+const groupLights = [
+  ['Hardware Lab Cabinets', [27, 33], 'labs'],
   ['Main Room', [11, 12, 31], 'social'],
   ['Media Room', [20, 24], 'social'],
-  ['Upper Floor', [0, 2], 'social'],
-  ['East Upper Bathroom', [17], 'bath'],
-  ['West Upper Bathroom', [15], 'bath'],
-  ['West Lower Bathroom', [13], 'bath'],
+  ['All Outside', [8, 34, 35, 36], 'social'],
+];
+
+const lights = [
+  ...individualLights,
+  ...groupLights,
   ...peopleRooms,
 ].sort((a, b) => {
   if (a[0] === b[0]) {
