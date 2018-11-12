@@ -20,6 +20,7 @@ const updateStatusData = (newUpdates) => {
       updates[lightID] = statusData[statusMap[lightID]];
     }
   });
+  console.log(statusData.length);
 
   let valueChanged = false;
   statusData = statusData.map((prevStatus, index) => {
@@ -28,7 +29,7 @@ const updateStatusData = (newUpdates) => {
     if (groups.length === 1 && groups[0] in updates) {
       newStatus = updates[groups[0]];
     } else {
-      newStatus = groups.every(g => g in updates && updates[g]);
+      newStatus = groups.every(g => updates[g]);
     }
     if (!valueChanged && newStatus !== prevStatus) {
       valueChanged = true;

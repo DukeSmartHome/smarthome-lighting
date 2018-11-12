@@ -28,14 +28,13 @@ const individualLights = [
   ['Basement Stairs', [32], 'labs'],
   ['Upstairs Balcony', [34], 'outside'],
   ['Front Porch (East)', [35], 'outside'],
-  ['Back Pole Light', [36], 'outside'],
   ['Kitchen Cabinets', [38], 'social'],
 ];
 const groupLights = [
   ['Hardware Lab Cabinets', [27, 33], 'labs'],
   ['Main Room', [11, 12, 31], 'social'],
   ['Media Room', [20, 24], 'social'],
-  ['All Outside', [8, 34, 35, 36], 'outside'],
+  ['All Outside', [8, 34, 35], 'outside'],
 ];
 
 const lights = [
@@ -56,11 +55,14 @@ const unique = Array.from(uniqueLights).sort((a, b) => a - b);
 const statusMap = {};  // contains mappings from unique to lights
 unique.forEach(u => {
   let index = -1;
-  lights.forEach((light, i) => {
-    if (light[1].length === 1 && light[1][0] === u) {  // unique match
+  lights.some((light, i) => {
+    if (light[1].length === 1 && light[1][0] === u) {  // single light
       index = i;
-    } else if (light[1].length > 1 && light[1].includes(u)) {
+      return true;
+    }
+    if (light[1].length > 1 && light[1].includes(u)) {  // light group
       index = i;
+      return true;
     }
   });
   statusMap[u] = index;
