@@ -31,12 +31,11 @@ const updateTimes = () => {
   const nextUpdate = moment(tomorrow).set({hour: 12, minute: 0});  // at noon
 
   if (moment().isBefore(sunset)) {
-    changeStatus(false, [lightID]);
-    scheduleLight(sunset.toDate());
-    scheduleLight(sunrise.toDate());
+    scheduleLight(sunset.toDate(), true);
+    scheduleLight(sunrise.toDate(), false);
   } else if (moment().isBefore(sunrise)) {
-    changeStatus(true, [lightID]);
-    scheduleLight(sunrise.toDate());
+    scheduleLight(moment().add(1, 'minutes').toDate(), true); // turn on in 1 minute
+    scheduleLight(sunrise.toDate(), false);
   }
 
   schedule.scheduleJob(nextUpdate.toDate(), updateTimes);
