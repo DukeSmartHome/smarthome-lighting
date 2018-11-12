@@ -23,30 +23,37 @@ class App extends Component {
     super(props);
     const token = localStorage.getItem('token');
     let loaded = false;
-    if (token !== null && token !== 'null') {
-      socket.emit('authentication', { token });
-    } else {
-      loaded = true;
-    }
 
-    socket.on('token', (token) => {
-      localStorage.setItem('token', token);
-      this.setState({ token });
-    });
-    socket.on('authenticated', (res) => {
-      if (res) {
-        this.setState({ loaded: true, view: 'lights', ...res });
-        socket.on('update', (newStatusData) => this.setState({ statusData: newStatusData }));
+    socket.on('connect', () => {
+      this.setState({ 'connected': true });
+      if (token !== null && token !== 'null') {
+        socket.emit('authentication', { token });
       } else {
-        this.setState({ loaded: true });
+        loaded = true;
       }
+      socket.on('token', (token) => {
+        localStorage.setItem('token', token);
+        this.setState({ token });
+      });
+      socket.on('authenticated', (res) => {
+        if (res) {
+          this.setState({ loaded: true, view: 'lights', ...res });
+          socket.on('update', (newStatusData) => this.setState({ statusData: newStatusData }));
+        } else {
+          this.setState({ loaded: true });
+        }
+      });
     });
+    socket.on('disconnect', () => {
+      this.setState({ 'connected': false });
+    })
 
     const category = localStorage.getItem('category');
     this.state = {
       category: category !== null && category !== 'null' ? category : 'all',
       token,
       loaded,
+      connected: true,
       view: 'login',
       theme: 'light',
     };
@@ -76,7 +83,7 @@ class App extends Component {
   render() {
     const { classes, update, state } = this.props;
     const {
-      loaded, category, statusData, lights, categories, view, theme
+      loaded, category, statusData, lights, categories, view, theme, connected
     } = this.state;
     let filteredLights = null;
     let filteredStatuses = null;
@@ -96,6 +103,7 @@ class App extends Component {
               view={view}
               toggleView={this.toggleView}
               theme={theme}
+              connected={connected}
             />
             <div className={classes.wrapper}>
               {view === 'login' ?

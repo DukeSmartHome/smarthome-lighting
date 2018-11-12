@@ -41,6 +41,14 @@ const style = (theme) => {
       marginBottom: 35,
       width: '100%',
     },
+    offline: {
+      width: '100%',
+      height: theme.headerHeight * 0.4,
+      lineHeight: theme.headerHeight * 0.4 + 'px',
+      fontSize: theme.headerHeight * 0.2 + 'px',
+      background: 'orange',
+      color: '#333',
+    },
     [theme.smaller]: {
       header: {
         fontSize: smallerHeader / 2 + 'px',
@@ -59,11 +67,16 @@ const style = (theme) => {
         height: smallerHeader,
         marginBottom: 0,
       },
+      offline: {
+        height: theme.headerHeight * 0.3,
+        lineHeight: theme.headerHeight * 0.3 + 'px',
+        fontSize: theme.headerHeight * 0.15 + 'px',
+      },
     }
   }
 };
 
-const Header = ({ classes, view, toggleView, theme }) => (
+const Header = ({ classes, view, toggleView, theme, connected }) => (
   <React.Fragment>
     <div className={classes.header} data-theme={theme}>
       {view.charAt(0).toUpperCase() + view.slice(1)}
@@ -74,6 +87,7 @@ const Header = ({ classes, view, toggleView, theme }) => (
           backgroundImage: `url(./img/${view !== 'settings' ? 'settings' : 'close'}.svg)`,
         }} />
       }
+      {!connected && <div className={classes.offline} >Offline, retrying connection...</div>}
     </div>
     <div className={classes.placeholder} />
   </React.Fragment>
