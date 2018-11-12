@@ -20,7 +20,6 @@ const updateStatusData = (newUpdates) => {
       updates[lightID] = statusData[statusMap[lightID]];
     }
   });
-  console.log(statusData.length);
 
   let valueChanged = false;
   statusData = statusData.map((prevStatus, index) => {

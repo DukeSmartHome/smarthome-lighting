@@ -19,8 +19,11 @@ app.get('/', (req, res) => {
 });
 httpServer.listen(port, () => console.log('Server started on port ' + port));
 
-const {initStatusData} = require('./modules/statusData.js');
+const {initStatusData} = require('./modules/statusData');
 initStatusData(io);
 
-const {setupSocket} = require('./modules/socket-io.js');
+const {setupSocket} = require('./modules/socket-io');
 setupSocket(io);
+
+const timing = require('./modules/timing');
+timing();

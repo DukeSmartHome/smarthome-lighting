@@ -22,6 +22,7 @@ const sendCommand = (command) => {
 };
 
 const changeStatus = (on, whichLights) => {
+  // console.log(`Turning ${on ? 'on' : 'off'} ${whichLights}`);
   if (on) {
     whichLights.forEach(light => sendCommand(commands.on(light)));
   } else {
