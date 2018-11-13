@@ -29,7 +29,7 @@ class App extends Component {
       if (token !== null && token !== 'null') {
         socket.emit('authentication', { token });
       } else {
-        loaded = true;
+        this.setState({ loaded: true });
       }
       socket.on('token', (token) => {
         localStorage.setItem('token', token);
