@@ -8,6 +8,13 @@ const peopleRooms = [
   ['Elizabeth & Sakura', [21], 'rooms'],  // NE
   ['Mac & Rebecca', [28], 'rooms'],       // SE
 ];
+const anonymizedRooms = [
+  ['Southwest Bedroom', [6], 'rooms'],   // SW
+  ['Downstairs Bedroom', [7], 'rooms'],  // Downstairs
+  ['Northwest Bedroom', [9], 'rooms'],   // NW
+  ['Northeast Bedroom', [21], 'rooms'],  // NE
+  ['Southeast Bedroom', [28], 'rooms'],  // SE
+];
 const individualLights = [
   ['Loft Space', [0], 'social'],
   ['Main Ceiling', [2], 'social'],
@@ -40,7 +47,7 @@ const groupLights = [
 const lights = [
   ...individualLights,
   ...groupLights,
-  ...peopleRooms,
+  ...anonymizedRooms,
 ].sort((a, b) => {
   if (a[0] === b[0]) {
     return 0;
