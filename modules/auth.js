@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const password = '376624954';
+const password = '3553130796';
 const secret = password;
 
 const getHash = (s) => {
