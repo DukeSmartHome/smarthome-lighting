@@ -3,7 +3,7 @@ const testLights = Array(50).fill(0).map((n, i) => [i, [i], 'outside']);
 const categories = ['all', 'social', 'rooms', 'bath', 'labs', 'outside'];
 const peopleRooms = [
   ['Weck & Connor', [6], 'rooms'],          // SW
-  ['Peter & Milo', [7], 'rooms'],      // Downstairs
+  ['Peter, Milo & Spud', [7], 'rooms'],      // Downstairs
   ['David & Alex Xu', [9], 'rooms'],         // NW
   ['Emma & Ashley', [21], 'rooms'],  // NE
   ['Andie & Joanna', [28], 'rooms'],       // SE
@@ -38,7 +38,7 @@ const individualLights = [
   ['Hardware Lab', [26], 'labs'],
   ['Hardware Lab East Cabinets', [27], 'labs'],
   ['SE Outlets', [29], 'rooms'],
-  ['NW Outlets', [30], 'rooms'],
+  ['NW Outlets - Xu Fan', [30], 'rooms'],
   ['Atrium Sides', [31], 'social'],
   ['Basement Stairs', [32], 'labs'],
   ['Hardware Lab West Cabinets', [33], 'labs'],
