@@ -48,6 +48,7 @@ const individualLights = [
   ['Media Outlets 3', [37], 'social'],
   ['Kitchen Cabinets', [38], 'social'],
   ['Downstairs Bed Outlets 1', [39], 'rooms'],
+  ['Lower Basement Stair', [42], 'labs'],
 ];
 const groupLights = [
   ['Hardware Lab Cabinets', [27, 33], 'labs'],
