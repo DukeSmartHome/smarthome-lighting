@@ -2,11 +2,11 @@ const testLights = Array(50).fill(0).map((n, i) => [i, [i], 'outside']);
 
 const categories = ['all', 'social', 'rooms', 'bath', 'labs', 'outside'];
 const peopleRooms = [
-  ['Anuj & Matt', [6], 'rooms'],          // SW
-  ['David & Ricardo', [7], 'rooms'],      // Downstairs
-  ['Flo & Lauren', [9], 'rooms'],         // NW
-  ['Elizabeth & Sakura', [21], 'rooms'],  // NE
-  ['Mac & Rebecca', [28], 'rooms'],       // SE
+  ['Weck & Connor', [6], 'rooms'],          // SW
+  ['Peter & Milo', [7], 'rooms'],      // Downstairs
+  ['David & Alex Xu', [9], 'rooms'],         // NW
+  ['Emma & Ashley', [21], 'rooms'],  // NE
+  ['Andie & Joanna', [28], 'rooms'],       // SE
 ];
 const anonymizedRooms = [
   ['Southwest Bedroom', [6], 'rooms'],   // SW
@@ -47,7 +47,7 @@ const groupLights = [
 const lights = [
   ...individualLights,
   ...groupLights,
-  ...anonymizedRooms,
+  ...peopleRooms,
 ].sort((a, b) => {
   if (a[0] === b[0]) {
     return 0;
