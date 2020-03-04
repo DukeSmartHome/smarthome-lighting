@@ -2,11 +2,11 @@ const testLights = Array(50).fill(0).map((n, i) => [i, [i], 'outside']);
 
 const categories = ['all', 'social', 'rooms', 'bath', 'labs', 'outside'];
 const peopleRooms = [
-  ['Weck & Pink', [6], 'rooms'],          // SW
-  ['Milo & DidgeriDude', [7], 'rooms'],      // Downstairs
-  ['David & Alex Xu', [9], 'rooms'],         // NW
-  ['Ashley & Emma', [21], 'rooms'],  // NE
-  ['Andie & Spud', [28], 'rooms'],       // SE
+  ['Alex', [6], 'rooms'],          // SW
+  ['Alex', [7], 'rooms'],      // Downstairs
+  ['Alex', [9], 'rooms'],         // NW
+  ['Not Alex', [21], 'rooms'],  // NE
+  ['Spud', [28], 'rooms'],       // SE
 ];
 const anonymizedRooms = [
   ['Southwest Bedroom', [6], 'rooms'],   // SW
