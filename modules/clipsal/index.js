@@ -11,7 +11,8 @@ const commands = {
   off: (whichLight) => '\\05380001' + decToHexByte(whichLight),
 };
 
-const serialPort = new SerialPort('/dev/ttyUSB0', {
+// To check which serial port is available run ls /dev/tty* and look for ttyUSB, ttyAMA, or ttyACM
+const serialPort = new SerialPort('/dev/ttyAMA0', {
   baudRate: 9600,
 });
 
