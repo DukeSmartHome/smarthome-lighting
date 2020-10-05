@@ -12,7 +12,7 @@ const commands = {
 };
 
 // To check which serial port is available run ls /dev/tty* and look for ttyUSB, ttyAMA, or ttyACM
-const serialPort = new SerialPort('/dev/ttyAMA0', {
+const serialPort = new SerialPort('/dev/ttyUSB0', {
   baudRate: 9600,
 });
 
